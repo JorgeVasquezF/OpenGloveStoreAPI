@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h4>Hola <%= @user.username %>, has sido seleccionado para revisar una aplicacion</h4>
+    <p>Nombre de la aplicación: <%=@app.name%> </p>
+    <p>
+      Link: http://67.205.141.163:8000/#/aplication/<%= @app.id %> <br/>
+    </p>
+    <p>Gracias!</p>
+  </body>
+</html>

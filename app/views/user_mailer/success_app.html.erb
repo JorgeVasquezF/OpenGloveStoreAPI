@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h4>Hola <%= @user.username %>, tu aplicación ha sido aprobada por un usuario</h4>
+    <p> Nombre de aplicación: <%=@app.name%> </p>
+    <p>
+      Link: http://67.205.141.163:8000/#/aplication/<%= @app.id %> <br/>
+    </p>
+    <p> Observaciones: <%=@comment%> </p>
+
+    <p>*Con tres aprobaciones tu aplicación se mostrara como verificada</p>
+    <p>*Cada vez que generes un nuevo release tu aplicación sera revisada.</p>
+  </body>
+</html>
