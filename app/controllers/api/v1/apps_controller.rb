@@ -52,7 +52,7 @@ module Api
          end
       end
       def email(user, app) 
-        @usersRev = User.where.not(id: user.id)
+        @usersRev = User.limit(Rails.configuration.x.users.quantity).order("RANDOM()").where.not(id: user.id)
         puts @usersRev.inspect
         app.user << @usersRev
         @prueba = Check.where(app_id: app.id).where.not(user_id: user.id)
@@ -111,7 +111,7 @@ module Api
               contadorApproved = contadorApproved + 1
             end
           end
-          if contadorApproved == 2
+          if contadorApproved == Rails.configuration.x.users.approved
             @app.published = true
             @app.save
           end
@@ -128,7 +128,7 @@ module Api
               contadorDisapproved = contadorDisapproved + 1
             end
           end
-          if contadorDisapproved == 2
+          if contadorDisapproved == Rails.configuration.x.users.deny
             @app.verified = 1
             @app.save
           end
@@ -174,7 +174,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def app_params
-          params.permit(:id, :name, :description, :git_url, :video_url, :documentation, :published, :image_url, :os)
+          params.permit(:id, :name, :description, :git_url, :video_url, :documentation, :published, :image_url, :os, :rating_app)
         end
         
     

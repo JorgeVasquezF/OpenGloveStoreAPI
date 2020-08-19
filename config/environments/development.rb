@@ -1,4 +1,11 @@
 Rails.application.configure do
+  config.x.users.quantity = 5
+  config.x.users.approved = 3
+  config.x.users.deny = 3
+
+
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
